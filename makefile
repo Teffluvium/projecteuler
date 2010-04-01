@@ -19,9 +19,9 @@ DIRLIST = \
 
 .PHONY: all
 all: ${DIRLIST}
-	make -k -C $^
+	make -k -C $^ all
 
 .PHONY: clean
 clean: ${DIRLIST}
-	make -C $^ clean
+	make -k -C $^ clean
 
