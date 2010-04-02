@@ -37,9 +37,14 @@ using namespace std;
 /*
  * Function Declarations
  */
-inline float areaTri( const float *a, const float *b, const float *c );
-void         showTri( const float *a, const float *b, const float *c,
-                      const float *d, const bool isInside );
+inline float areaTri( const float *a,
+                      const float *b,
+                      const float *c );
+void         showTri( const float *a,
+                      const float *b,
+                      const float *c,
+                      const float *d,
+                      const bool   isInside );
 
 // Constants
 const float origin[2] = {0, 0};
@@ -49,15 +54,15 @@ const float origin[2] = {0, 0};
  * Main
  */
 int main( int argc, char **argv ) {
-   float a[2]      = {0},
-         b[2]      = {0},
-         c[2]      = {0};
-   float area      = 0,
-         subArea   = 0;
-   bool  isInside  = false;
-   char fileName[] = "triangles.txt";
+   float    a[2]       = {0},
+            b[2]       = {0},
+            c[2]       = {0};
+   float    area       = 0,
+            subArea    = 0;
+   bool     isInside   = false;
+   char     fileName[] = "triangles.txt";
+   int      count      = 0;
    ifstream fin;
-   int count = 0;
 
    fin.open( fileName );
 
@@ -86,7 +91,7 @@ int main( int argc, char **argv ) {
          count++;
       }
 
-      //showTri( a, b, c, origin, isInside );
+      // showTri( a, b, c, origin, isInside );
    } // end of reading from file
 
    fin.close();
@@ -123,5 +128,3 @@ void showTri( const float *a, const float *b, const float *c, const float *d, co
 
    cout << endl;
 }
-
-
