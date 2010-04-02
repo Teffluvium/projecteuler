@@ -6,9 +6,6 @@ CPPFLAGS = $(INCLUDES)        # List of include paths
 -include $(SRCS:.cpp=.d)
 
 #--------------------------
-.PHONY: all
-all: ${TGT}
-
 $(TGT): $(OBJS)
 	@echo Building executable
 	@# CXX command is g++, @ is TGT, ^ loops on each OBJ

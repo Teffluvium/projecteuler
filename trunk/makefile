@@ -4,7 +4,7 @@ DIRLIST = `find . -maxdepth 1 -type d -name 'problem*'`
 all:
 	@for i in $(DIRLIST) ; \
 	do \
-		make -k -C $$i all ; \
+		make -k -C $$i ; \
 	done
 
 .PHONY: clean
