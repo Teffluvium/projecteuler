@@ -1,6 +1,6 @@
 TGT          = problem_011
 SRCS         = ${TGT}.cpp
-OBJS         = $(SRCS:.cpp=.o)
+OBJS         = ${SRCS:.cpp=.o}
 
 #--------------------------
 -include ../makefile.common
