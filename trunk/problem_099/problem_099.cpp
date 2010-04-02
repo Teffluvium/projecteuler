@@ -22,7 +22,7 @@
 using namespace std;
 
 int main(int argc, char **argv) {
-   string          filename = "base_exp.txt";
+   string          filename = "problem_099.base_exp.txt";
    vector <double> base,
                    exponent,
                    result;

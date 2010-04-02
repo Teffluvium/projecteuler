@@ -1,0 +1,30 @@
+#--------------------------
+# Include automatically generated dependencies
+-include $(SRCS:.cpp=.d)
+
+#--------------------------
+$(TGT): $(OBJS)
+	@echo Building executable
+	@# CXX command is g++, @ is TGT, ^ loops on each OBJ
+	$(CXX) -o $@ $(LDFLAGS) $^
+
+.PHONY: clean
+clean:
+	@echo Cleaning up project
+	@/bin/rm -fv $(OBJS) *.d
+
+.PHONY: install
+install:
+	@echo Creating install directory
+	@mkdir -p ${INSTALLDIR}
+	@cp -t ${INSTALLDIR} ${INSTALLLIST}
+
+# Automate Generation of Dependencies
+%.d: %.cpp
+	@echo Creating dependencies
+	$(CXX) $(INCLUDES) -MM $< > $@
+	@# where $< is all my.cpp files
+	@# and > redirects output to $@ file called my.d
+	@# and $(CXX) is g++ with -MM option to build dependencies
+
+

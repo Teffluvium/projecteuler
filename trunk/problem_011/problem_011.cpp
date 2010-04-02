@@ -36,7 +36,7 @@
 #include <vector>
 using namespace std;
 
-string filename = "data.txt";
+string filename = "problem_011.data.txt";
 
 int main(int argc, char **argv) {
    vector <int> data;
