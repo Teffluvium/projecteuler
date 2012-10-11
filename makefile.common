@@ -1,6 +1,6 @@
 CXXFLAGS    = -o3 -g -ggdb -Wall # Compiler Flags
 CPPFLAGS    = ${INCLUDES}        # List of include paths
 TOPDIR      = ..
-INSTALLDIR	= ${TOPDIR}/bin
+INSTALLDIR  = ${TOPDIR}/bin
 INSTALLLIST = ${TGT}
 

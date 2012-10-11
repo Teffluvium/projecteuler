@@ -9,14 +9,14 @@ DIRLIST = `find . -maxdepth 1 -type d -name 'problem*' | sort`
 all:
 	@for i in ${DIRLIST} ; \
 	do \
-		make -k -C $$i ; \
+		${MAKE} -k -C $$i ; \
 	done
 
 .PHONY: clean
 clean:
 	@for i in ${DIRLIST} ; \
 	do \
-		make -k -C $$i clean ; \
+		${MAKE} -k -C $$i clean ; \
 	done
 
 .PHONY: install
@@ -24,6 +24,6 @@ install:
 	@mkdir -p ${INSTALLDIR}
 	@for i in ${DIRLIST} ; \
 	do \
-		make -k -C $$i install ; \
+		${MAKE} -k -C $$i install ; \
 	done
 
