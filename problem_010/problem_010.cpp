@@ -26,7 +26,7 @@ int main()
         isPrime = 1;
         root    = sqrt(num);
         
-        for (unsigned int k=2; k<=sqrt(num); k++)
+        for (unsigned int k=2; k<=root; k++)
         {
             if (num % k == 0)
             {
