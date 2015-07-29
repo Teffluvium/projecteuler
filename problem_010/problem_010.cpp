@@ -3,7 +3,11 @@
  * 
  * The sum of the primes below 10 is 2 + 3 + 5 + 7 = 17.
  * 
- * Find the sum of all the primes below one million.
+ * Find the sum of all the primes below two million.
+ */
+
+/*
+ * The solution is 142913828922
  */
 
 #include <iostream>
@@ -11,7 +15,7 @@
 
 using namespace std;
 
-const unsigned int MaxPrime = 1000000;
+const unsigned int MaxPrime = 2000000;
 int main()
 {
     unsigned int currPrime = 2, 

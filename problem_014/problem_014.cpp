@@ -19,6 +19,10 @@
  * NOTE: Once the chain starts the terms are allowed to go above one million.
  */
 
+/*
+ * The solution is 837799
+ */
+
 #include <iostream>
 
 using namespace std;
