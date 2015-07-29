@@ -25,6 +25,12 @@ unsigned long projectEuler_math::cumSum(unsigned long M, unsigned long N) {
     return (N-M+1)*(M+N)/2;
 }
 
+// Cumulative sum of squares from M to N
+unsigned long projectEuler_math::cumSumOfSquares(unsigned long M, unsigned long N) {
+    /* Uses closed form solution */
+    return (N * (N+1) * (2*N+1) - (M-1) * M * (2*M-1) ) / 6;
+}
+
 // Least Common Multiple (LCD)
 unsigned long projectEuler_math::lcm(unsigned long a, unsigned long b) {
     return (a * b) / projectEuler_math::gcd(a, b);
@@ -55,10 +61,10 @@ unsigned long projectEuler_math::fibonacci( const int N ) {
 
 // Check if an integer is a palindrome
 bool projectEuler_math::isPalindromeInt(unsigned long num) {
-    int powerOfTen = 0;
-    unsigned long high       = 0;
-    unsigned long low        = 0;
-    int k          = 0;
+    int powerOfTen     = 0;
+    int k              = 0;
+    unsigned long high = 0;
+    unsigned long low  = 0;
 
     powerOfTen = static_cast<int>(floor(log10(num)));
 
@@ -71,4 +77,15 @@ bool projectEuler_math::isPalindromeInt(unsigned long num) {
     } while (low == high  &&  k<ceil(powerOfTen/2.0));
 
     return ( low == high );
+}
+
+void projectEuler_math::primitiveTriple(unsigned long M, unsigned long N, unsigned long *A, unsigned long *B, unsigned long *C) {
+    /* Given two integers M and N, such that GCD(M,N) = 1, and M > N,
+     * return the values of the primitive Pythagorean Triple to A, B, and C,
+     * where A^2 + B^2 = C^2
+     */
+
+    *A = M*M - N*N;
+    *B = 2 * M * N;
+    *C = M*M + N*N;
 }

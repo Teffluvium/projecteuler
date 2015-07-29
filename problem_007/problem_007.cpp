@@ -4,6 +4,8 @@
  
  /*
   * Simple brute force search for primes
+  *
+  * The solution is 104743
   */
 
 #include <iostream>

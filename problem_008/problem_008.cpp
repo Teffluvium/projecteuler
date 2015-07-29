@@ -1,5 +1,5 @@
 /*
- * Find the greatest product of five consecutive digits in the 1000-digit number.
+ * Find the greatest product of 13 consecutive digits in the 1000-digit number.
  * 
  * 73167176531330624919225119674426574742355349194934
  * 96983520312774506326239578318016984801869478851843
@@ -22,6 +22,10 @@
  * 05886116467109405077541002256983155200055935729725
  * 71636269561882670428252483600823257530420752963450
  */
+
+/*
+ * The solution is 23514624000
+*/
  
  #include <iostream>
  #include <stdlib.h>
@@ -51,11 +55,11 @@
  
 int main()
 {
-    unsigned int Size     = BIGNUM.size(),
-                 buffSize = 5,
-                 indx     = 0,
-                 prod     = 1,
-                 maxProd  = 0;
+    unsigned int  Size     = BIGNUM.size(),
+                  buffSize = 13,
+                  indx     = 0;
+    unsigned long prod     = 1,
+                  maxProd  = 0;
     char buffer;
     
     for (unsigned int k=0; k<(Size - buffSize +1); k++)
@@ -73,7 +77,7 @@ int main()
         }
     }
 
-    cout << "The maximum product of five consecutive integers in the 1000 digit number is " << maxProd << endl;
+    cout << "The maximum product of 13 consecutive integers in the 1000 digit number is " << maxProd << endl;
     
     return 0;
 }

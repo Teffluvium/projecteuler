@@ -11,29 +11,32 @@
  *
  */
 
+/*
+ * The solution is 31875000
+ */
+
 #include <iostream>
 #include <cmath>
+#include <projectEuler_math.h>
 
 using namespace std;
-
-void primitiveTriple(int M, int N, int *A, int *B, int *C);
-int gcd(int a, int b);
 
 const int TARGETSUM = 1000;
 
 int main()
 {
-    int a = 0, b = 0, c = 0;
-    int m = 2, n = 1;
-    int sum = 0, mult = 0;
-    
+    unsigned long a = 0, b = 0, c = 0;
+    unsigned long m = 2, n = 1;
+    unsigned long sum = 0, mult = 0;
+    projectEuler_math pe_math;
+
     for (n=1; n<TARGETSUM; n++)
     {
         for (m=n+1; m<TARGETSUM; m++)
         {
-            if (gcd(m,n)==1)
+            if (pe_math.gcd(m,n) == 1)
             {
-                primitiveTriple(m, n, &a, &b, &c);
+                pe_math.primitiveTriple(m, n, &a, &b, &c);
                 sum = a + b + c;
                 if ( (TARGETSUM % sum) == 0)
                 {
@@ -54,31 +57,4 @@ int main()
     }
     
     return 1;
-}
-
-void primitiveTriple(int M, int N, int *A, int *B, int *C)
-{
-    /* Given two integers M and N, such that GCD(M,N) = 1, and M > N, 
-     * return the values of the primitive Pythagorean Triple to A, B, and C, 
-     * where A^2 + B^2 = C^2
-     */
-
-     *A = M*M - N*N;
-     *B = 2 * M * N;
-     *C = M*M + N*N;
-}
-
-// Greatest Common Divisor (GCD)
-int gcd(int a, int b)
-{
-    int Remainder;
-
-    while( b != 0 )
-    {
-        Remainder = a % b;
-        a         = b;
-        b         = Remainder;
-    }
-
-    return a;
 }

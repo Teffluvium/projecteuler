@@ -20,6 +20,9 @@ public:
     // Cumulative sum from M to N
     unsigned long cumSum( unsigned long m, unsigned long n );
 
+    // Cumulative sum of squares from M to N
+    unsigned long cumSumOfSquares( unsigned long m, unsigned long n );
+
     // Least Common Multiple (LCM)
     unsigned long lcm(    unsigned long a, unsigned long b );
 
@@ -28,6 +31,9 @@ public:
 
     // Check if an integer is a palindrome
     bool isPalindromeInt( unsigned long num );
+
+    // Primitive Triple
+    void primitiveTriple( unsigned long M, unsigned long N, unsigned long *A, unsigned long *B, unsigned long *C );
 
 };
 

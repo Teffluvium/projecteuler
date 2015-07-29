@@ -29,10 +29,9 @@ int main()
 
 unsigned long getFactor(unsigned long n)
 {
-    unsigned long Test = 0,
-                  rtN  = static_cast<unsigned long>(ceil(sqrt(n)));
+    unsigned long Test = 0;
+    unsigned long rtN  = static_cast<unsigned long>(ceil(sqrt(n)));
 
-    
     for (Test=2; Test<=rtN; Test++)
     {
 
