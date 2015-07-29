@@ -41,7 +41,7 @@ int main()
     } while ( Fn < NMAX );
     
     cout << "The sum of the even terms of the Fibonacci ";
-    cout << "sequence that are less than 1 million is " << sum << endl;
+    cout << "sequence that are less than 4 million is " << sum << endl;
     
     return 0;
 }
