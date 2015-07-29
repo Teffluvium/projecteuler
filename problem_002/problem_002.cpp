@@ -6,53 +6,42 @@
  * 
  *        1, 2, 3, 5, 8, 13, 21, 34, 55, 89, ...
  * 
- * Find the sum of all the even-valued terms in the sequence which do not exceed one million.
+ * Find the sum of all the even-valued terms in the sequence which do not exceed four million.
  * 
- * This algorithm uses a closed form solution for the nth term of the Fibonacci sequence. 
+ * This algorithm uses a closed form solution for the nth term of the Fibonacci sequence.
+ *
+ * The correct solution is 4613732
  */
  
 #include <iostream>
-#include <cmath>
-
-unsigned long fibonacci(int n);
+#include "../libsrc/projectEuler_math.h"
 
 using namespace std;
 
+const unsigned long NMAX = 4000000;
+
 int main()
 {
-    unsigned long Fn = 0;
-    int           n  = 2, sum = 0;
-    
+    projectEuler_math pe_math;
+    unsigned long Fn  = 0;
+    int           sum = 0;
+    int           n   = 2;
+
     do
     {
+        Fn = pe_math.fibonacci(n);
+
         if ((Fn % 2) == 0)
         {
             // Only sum even terms
             sum += Fn;
         }
-        
+
         n++;
-        Fn = fibonacci(n);
-    } while ((Fn < 1000000));
+    } while ( Fn < NMAX );
     
     cout << "The sum of the even terms of the Fibonacci ";
     cout << "sequence that are less than 1 million is " << sum << endl;
     
     return 0;
-}
-
-
-unsigned long fibonacci(int n)
-{
-    const long double rt5    = sqrt(5);
-    long double       Fn     = 0;
-    long              Fn_int = 0;
-    
-    Fn =  pow(1.0 + rt5, n);
-    Fn -= pow(1.0 - rt5, n);
-    Fn /= ( pow(2.0, n) * rt5 );
-    
-    Fn_int = static_cast<unsigned long> (Fn);
-    
-    return Fn_int;
 }
