@@ -23,6 +23,10 @@ set(SOURCE_FILES
     # problem_102/problem_102.cpp
     )
 
-# add_executable(projectEuler ${SOURCE_FILES} libsrc/projectEuler_math.cpp libsrc/projectEuler_math.h)
-add_executable(projectEuler_problem_001 problem_001/problem_001.cpp libsrc/projectEuler_math.cpp libsrc/projectEuler_math.h)
-add_executable(projectEuler_problem_002 problem_002/problem_002.cpp libsrc/projectEuler_math.cpp libsrc/projectEuler_math.h)
+add_subdirectory( libsrc )
+include_directories( ${PROJECT_SOURCE_DIR}/libsrc )
+
+add_subdirectory( problem_001 )
+add_subdirectory( problem_002 )
+
+
