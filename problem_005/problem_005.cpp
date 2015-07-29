@@ -6,43 +6,21 @@
  */
 
 #include <iostream>
-#include <cmath>
+#include "../libsrc/projectEuler_math.h"
 
 using namespace std;
-
-unsigned long gcd(unsigned long a, unsigned long b);
-unsigned long lcm(unsigned long a, unsigned long b);
 
 int main()
 {
     unsigned long N = 1;
+    projectEuler_math pe_math;
     
     for (unsigned long k=2; k<=20; k++)
     {
-        N = lcm(N, k);
+        // N = lcm(N, k);
+        N = pe_math.lcm( N, k );
     }
     cout << "LCM(1, 2, 3, ... , 20) = " << N << endl;
     
     return 0;
-}
-
-// Greatest Common Divisor (GCD)
-unsigned long gcd(unsigned long a, unsigned long b)
-{
-    int Remainder;
-
-    while( b != 0 )
-    {
-        Remainder = a % b;
-        a         = b;
-        b         = Remainder;
-    }
-
-    return a;
-}
-
-// Least Common Multiple (LCM)
-unsigned long lcm(unsigned long a, unsigned long b)
-{
-    return (a * b) / gcd(a, b);
 }

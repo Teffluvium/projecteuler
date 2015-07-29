@@ -26,6 +26,9 @@ public:
     // Calculate the Nth Fibonacci number
     unsigned long fibonacci( int N );
 
+    // Check if an integer is a palindrome
+    bool isPalindromeInt( unsigned long num );
+
 };
 
 
