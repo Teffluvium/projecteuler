@@ -12,9 +12,13 @@
  * Which prime, below one-million, can be written as the sum of the most 
  * consecutive primes?
  */
+/*
+ * The solution is 997661
+ */
 
 #include <iostream>
 #include <cmath>
+#include "../libsrc/projectEuler_math.h"
 
 using namespace std;
 
@@ -83,9 +87,9 @@ void getPrimeList(int N, unsigned long *& pList, int *numPrimes)
     pList    = new unsigned long[*numPrimes];
     pList[0] = 2;  // Initialize the array with the first prime number
     
-    unsigned int  currInd = 0,
-         maxDiv  = 0;
-    bool isPrime = 1;
+    unsigned int  currInd = 0;
+    unsigned long maxDiv  = 0;
+    bool          isPrime = 1;
     
     for (int k=3; k<N; k += 2)
     {   // Look for primes
@@ -104,7 +108,7 @@ void getPrimeList(int N, unsigned long *& pList, int *numPrimes)
         if (isPrime)
         {   // update the list of known primes
             currInd++;
-            pList[currInd] = k;
+            pList[currInd] = (unsigned long) k;
         }
 
     } // end k loop

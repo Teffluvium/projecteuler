@@ -35,6 +35,8 @@ public:
     // Primitive Triple
     void primitiveTriple( unsigned long M, unsigned long N, unsigned long *A, unsigned long *B, unsigned long *C );
 
+    // Calculate mod( M^N, D )
+    unsigned long powMod( int M, int N, unsigned long D );
 };
 
 

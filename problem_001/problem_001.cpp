@@ -17,10 +17,6 @@
 
 using namespace std;
 
-// int cumSum(int m, int n);
-// int gcd(int a, int b);
-// int lcm(int a, int b);
-
 const int NMAX = 999;   // We need to be strictly less than 1000
 
 int main()
@@ -41,31 +37,3 @@ int main()
 
 	return 0;
 }
-
-// // Cumulative sum from M to N
-// int cumSum(int M, int N)
-// {
-//     /* Uses the finite arithmetic sum formula from M to N */
-//     return (N-M+1)*(M+N)/2;
-// }
-//
-// // Greatest Common Divisor (GCD)
-// int gcd(int a, int b)
-// {
-//     int Remainder;
-//
-//     while( b != 0 )
-//     {
-//         Remainder = a % b;
-//         a         = b;
-//         b         = Remainder;
-//     }
-//
-//     return a;
-// }
-//
-// // Least Common Multiple (LCD)
-// int lcm(int a, int b)
-// {
-//     return (a * b) / gcd(a, b);
-// }

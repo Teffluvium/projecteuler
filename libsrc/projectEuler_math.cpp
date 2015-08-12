@@ -89,3 +89,16 @@ void projectEuler_math::primitiveTriple(unsigned long M, unsigned long N, unsign
     *B = 2 * M * N;
     *C = M*M + N*N;
 }
+
+unsigned long projectEuler_math::powMod(int M, int N, unsigned long D)
+{
+    /*
+     * Calculate mod( M^N, D )
+     */
+    unsigned long num = M;
+    for (int k=1; k<N; k++)
+    {
+        num = (num * M) % D;
+    }
+    return num;
+}
