@@ -1,8 +1,8 @@
-set( PROBLEM_SOURCES
-    problem_002.cpp )
+set( PROBLEM_SOURCES problem_002.cpp )
 
-add_executable( problem_002
-    ${PROBLEM_SOURCES} )
+add_executable( problem_002 ${PROBLEM_SOURCES} )
 
-target_link_libraries( problem_002
-    projectEuler_lib )
+target_link_libraries( problem_002 projectEuler_lib )
+
+install( TARGETS problem_002
+    DESTINATION ${projectEuler_SOURCE_DIR}/bin )
