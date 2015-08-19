@@ -31,6 +31,9 @@
 /*
  * The solution is 190569291
  * Solved via the partition function q(100,99)
+ *
+ * Good resouce for alternate implementations:
+ *      http://www.programminglogic.com/integer-partition-algorithm/
  */
 
 #include <cstdlib>
