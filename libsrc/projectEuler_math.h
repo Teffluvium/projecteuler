@@ -37,6 +37,9 @@ public:
 
     // Calculate mod( M^N, D )
     unsigned long powMod( int M, int N, unsigned long D );
+
+    // Partition function q
+    long partQ( long n, long k );
 };
 
 

@@ -36,17 +36,16 @@
 #include <cstdlib>
 #include <iostream>
 #include <vector>
+#include "../libsrc/projectEuler_math.h"
+
 using namespace std;
-
-long partQ( long n, long k );
-
-// const long SOLVENUM = 100;
-const long SOLVENUM = 7;
 
 int main(int argc, char **argv)
 {
-    long n = 5;
-    long k = 4;
+    projectEuler_math pe_math;
+
+    long n   = 5;
+    long k   = 4;
     long tmp = 0;
 
     // Update n using input
@@ -62,39 +61,9 @@ int main(int argc, char **argv)
     }
 
     cout << "Q(" << n << ", " << k << ") = ";
-    tmp = partQ( n, k );
+    tmp = pe_math.partQ( n, k );
 
     cout << tmp << endl;
 
     return 0;
-}
-
-long partQ( long n, long k )
-{
-    /*
-     * Partition function q, recursive implementation
-     *
-     *      Q(n,k) = Q(n,k-1) + Q(n-k,k)
-     *
-     * Q(n,k) is the number of partitions of integer, n, with no element greater than k.
-     *
-     * Example:
-     *      Q(5,3) = 5, since the partitions of 5 of length <= 3 are {3,2}, {3,1,1},
-     *                  {2,2,1}, {2,1,1,1,1}, and {1,1,1,1,1}
-     */
-
-    if ( 0==k )
-    {
-        return 0;
-    }
-    if ( 0==n )
-    {
-        return 1;
-    }
-    if ( 0>n )
-    {
-        return 0;
-    }
-
-    return partQ( n, k-1 ) + partQ( n-k, k );
 }

@@ -102,3 +102,33 @@ unsigned long projectEuler_math::powMod(int M, int N, unsigned long D)
     }
     return num;
 }
+
+long projectEuler_math::partQ( long n, long k )
+{
+    /*
+     * Partition function q, recursive implementation
+     *
+     *      Q(n,k) = Q(n,k-1) + Q(n-k,k)
+     *
+     * Q(n,k) is the number of partitions of integer, n, with no element greater than k.
+     *
+     * Example:
+     *      Q(5,3) = 5, since the partitions of 5 of length <= 3 are {3,2}, {3,1,1},
+     *                  {2,2,1}, {2,1,1,1,1}, and {1,1,1,1,1}
+     */
+
+    if ( 0==k )
+    {
+        return 0;
+    }
+    if ( 0==n )
+    {
+        return 1;
+    }
+    if ( 0>n )
+    {
+        return 0;
+    }
+
+    return partQ( n, k-1 ) + partQ( n-k, k );
+}
