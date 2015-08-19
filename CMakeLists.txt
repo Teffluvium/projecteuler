@@ -3,10 +3,6 @@ project(projectEuler)
 
 set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 
-# file( MAKE_DIRECTORY ${projectEuler_SOURCE_DIR}/bin )
-# file( MAKE_DIRECTORY ${projectEuler_SOURCE_DIR}/includes )
-# file( MAKE_DIRECTORY ${projectEuler_SOURCE_DIR}/lib )
-
 add_subdirectory( libsrc )
 include_directories( ${PROJECT_SOURCE_DIR}/libsrc )
 
