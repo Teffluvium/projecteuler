@@ -60,7 +60,7 @@ int main( int argc, char **argv ) {
    float    area       = 0,
             subArea    = 0;
    bool     isInside   = false;
-   char     fileName[] = "problem_102.triangles.txt";
+   char     fileName[] = "../resources/problem_102.triangles.txt";
    int      count      = 0;
    ifstream fin;
 

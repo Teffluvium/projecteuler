@@ -22,6 +22,7 @@ add_subdirectory( problem_048 )
 add_subdirectory( problem_050 )
 add_subdirectory( problem_076 )
 add_subdirectory( problem_099 )
+add_subdirectory( problem_102 )
 
 enable_testing()
 add_test( test_problem_001 ${projectEuler_SOURCE_DIR}/bin/problem_001 )
