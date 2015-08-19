@@ -14,88 +14,87 @@
  * positive integers?
  * 
  * Tip: Consider solving by Euler's partition funciton ...
+ *      P(n,k) īs the number of ways that an integer, n, can be written as a sum
+ *      of exactly k terms.
+ *      P(n,k) = P(n-1,k-1) + P(n-k,k)
+ *
+ *      Similarly, Q(n,k) is the number of partitions of integer, n, with no
+ *      element greater than k.
+ *      Q(n,k) = Q(n,k-1) + Q(n-k,k)
+ *
+ * Example:
+ *      P(5,3) = 2, since the partitions of 5 of length 3 are {3,1,1} and {2,2,1}
+ *
+ *      Q(5,3) = 5, since the partitions of 5 of length <= 3 are {3,2}, {3,1,1},
+ *                  {2,2,1}, {2,1,1,1,1}, and {1,1,1,1,1}
+ */
+/*
+ * The solution is 190569291
+ * Solved via the partition function q(100,99)
  */
 
+#include <cstdlib>
 #include <iostream>
 #include <vector>
 using namespace std;
 
-void display(const vector<long> & vec, long count = 0);
-const vector<long> & fillVecTail(vector<long> & vec, long maxVal, long fillVal);
-long sumVec(const vector<long> & vec);
+long partQ( long n, long k );
 
-const long SOLVENUM = 100;
+// const long SOLVENUM = 100;
+const long SOLVENUM = 7;
 
-int main(int argc, char **argv) {
-   vector <long> v;
-   long          count = 0;
-   
-   // Allocate space for the vector v
-   v.reserve(SOLVENUM);
-   v.push_back(SOLVENUM);
-   
-   while (v.at(0)>1) {
-      count++;
-      
-      // Strip out trailing ones from the vector
-      while (v.back() == 1) {
-         v.pop_back();
-      }
-      
-      // Decrement the last element of the vector
-      v.back() = v.back() - 1;
-      
-      /* 
-       * Fill the end of the vector with the last element repeatedly until the sum
-       * of the vector elements equals SOLVENUM
-       */
-      v = fillVecTail(v, SOLVENUM, v.back());
-   }  // end while loop
-   
-   cout << endl << "Done" << endl << endl;
-   display(v, count);
+int main(int argc, char **argv)
+{
+    long n = 5;
+    long k = 4;
+    long tmp = 0;
+
+    // Update n using input
+    if ( 1 < argc )
+    {
+        n = atoi( argv[1] );
+        k = n;      // Assume calculating Q( n, n )
+    }
+    // Update k using input
+    if ( 2 < argc )
+    {
+        k = atoi( argv[2] );
+    }
+
+    cout << "Q(" << n << ", " << k << ") = ";
+    tmp = partQ( n, k );
+
+    cout << tmp << endl;
+
+    return 0;
 }
 
-void display(const vector<long> & vec, long count) {
-   long N = vec.size();
-   cout << count << ":   ";
-   for (long n=0; n != N; n++) {
-      cout << vec[n] << " ";
-   }
-   cout << endl;
-}
+long partQ( long n, long k )
+{
+    /*
+     * Partition function q, recursive implementation
+     *
+     *      Q(n,k) = Q(n,k-1) + Q(n-k,k)
+     *
+     * Q(n,k) is the number of partitions of integer, n, with no element greater than k.
+     *
+     * Example:
+     *      Q(5,3) = 5, since the partitions of 5 of length <= 3 are {3,2}, {3,1,1},
+     *                  {2,2,1}, {2,1,1,1,1}, and {1,1,1,1,1}
+     */
 
-/* 
- * Sum the elements of the vector
- */
-long sumVec(const vector<long> & vec) {
-   vector<long>::const_iterator p;
-   long sum = 0;
-   for (p=vec.begin(); p != vec.end(); p++) {
-      sum += *p;
-   }
-   return sum;
-}
+    if ( 0==k )
+    {
+        return 0;
+    }
+    if ( 0==n )
+    {
+        return 1;
+    }
+    if ( 0>n )
+    {
+        return 0;
+    }
 
-/* 
- * Repeatedly append fillVal to the end of a vector until the sum of the 
- * vector elements equals maxVal
- */
-const vector<long> & fillVecTail(vector<long> & vec, 
-                                 const long maxVal,
-                                 const long fillVal) {
-   
-   // Append fillVal as many times as necessary without sumVec(vec) > maxVal
-   long remaining = maxVal - sumVec(vec);
-   int appendCnt  = remaining/fillVal;
-   for (int k=0; k<appendCnt; k++) {
-      vec.push_back(fillVal);
-      remaining -= fillVal;
-   }
-   // If remaining is still positive, append to the vector
-   if (remaining>0) {
-      vec.push_back(remaining);
-   }
-   
-   return vec;
+    return partQ( n, k-1 ) + partQ( n-k, k );
 }
