@@ -5,8 +5,11 @@
 #include "projectEuler_math.h"
 #include <cmath>
 
+using namespace std;
+
 // Greatest Common Divisor (GCD)
-unsigned long projectEuler_math::gcd(unsigned long a, unsigned long b) {
+unsigned long projectEuler_math::gcd(unsigned long a, unsigned long b)
+{
     unsigned long Remainder;
 
     while( b != 0 )
@@ -20,24 +23,28 @@ unsigned long projectEuler_math::gcd(unsigned long a, unsigned long b) {
 }
 
 // Cumulative sum from M to N
-unsigned long projectEuler_math::cumSum(unsigned long M, unsigned long N) {
+unsigned long projectEuler_math::cumSum(unsigned long M, unsigned long N)
+{
     /* Uses the finite arithmetic sum formula from M to N */
     return (N-M+1)*(M+N)/2;
 }
 
 // Cumulative sum of squares from M to N
-unsigned long projectEuler_math::cumSumOfSquares(unsigned long M, unsigned long N) {
+unsigned long projectEuler_math::cumSumOfSquares(unsigned long M, unsigned long N)
+{
     /* Uses closed form solution */
     return (N * (N+1) * (2*N+1) - (M-1) * M * (2*M-1) ) / 6;
 }
 
 // Least Common Multiple (LCD)
-unsigned long projectEuler_math::lcm(unsigned long a, unsigned long b) {
+unsigned long projectEuler_math::lcm(unsigned long a, unsigned long b)
+{
     return (a * b) / projectEuler_math::gcd(a, b);
 }
 
 // Calculate the Nth Fibonacci number
-unsigned long projectEuler_math::fibonacci( const int N ) {
+unsigned long projectEuler_math::fibonacci( const int N )
+{
     // Uses closed-form solution of Binet's formula:
     //     Fn = ( phi^N - psi^N ) / sqrt(5);
     const long double rt5    = sqrt(5);
@@ -60,7 +67,8 @@ unsigned long projectEuler_math::fibonacci( const int N ) {
 }
 
 // Check if an integer is a palindrome
-bool projectEuler_math::isPalindromeInt(unsigned long num) {
+bool projectEuler_math::isPalindromeInt(unsigned long num)
+{
     int powerOfTen     = 0;
     int k              = 0;
     unsigned long high = 0;
@@ -79,7 +87,8 @@ bool projectEuler_math::isPalindromeInt(unsigned long num) {
     return ( low == high );
 }
 
-void projectEuler_math::primitiveTriple(unsigned long M, unsigned long N, unsigned long *A, unsigned long *B, unsigned long *C) {
+void projectEuler_math::primitiveTriple(unsigned long M, unsigned long N, unsigned long *A, unsigned long *B, unsigned long *C)
+{
     /* Given two integers M and N, such that GCD(M,N) = 1, and M > N,
      * return the values of the primitive Pythagorean Triple to A, B, and C,
      * where A^2 + B^2 = C^2
@@ -131,4 +140,15 @@ long projectEuler_math::partQ( long n, long k )
     }
 
     return partQ( n, k-1 ) + partQ( n-k, k );
+}
+
+
+
+float projectEuler_math::areaTri( const float *a, const float *b, const float *c )
+{
+    /*
+     * Calculate the area of a triangle with veritces a, b, and c.
+     * Each vertex is an array with the x and y coordinates.
+     */
+    return  0.5 * fabs( (b[0]-a[0])*(c[1]-a[1]) - (b[1]-a[1])*(c[0]-a[0]) );
 }
