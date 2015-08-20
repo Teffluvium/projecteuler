@@ -6,6 +6,7 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -std=c++11")
 add_subdirectory( libsrc )
 include_directories( ${PROJECT_SOURCE_DIR}/libsrc )
 
+add_subdirectory( problem_template )
 add_subdirectory( problem_001 )
 add_subdirectory( problem_002 )
 add_subdirectory( problem_003 )
