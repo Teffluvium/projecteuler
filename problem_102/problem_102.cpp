@@ -27,6 +27,10 @@
  * found by taking one half the absolute value of the cross product of two sides
  * of the triangle.
  */
+/*
+ * The solution is 228
+ */
+
 #include <iostream>
 #include <iomanip>
 #include <fstream>
@@ -50,11 +54,11 @@ const float origin[2] = {0, 0};
  */
 int main( int argc, char **argv ) {
     projectEuler_math pe_math;
-    float    a[2]       = {0},
-             b[2]       = {0},
-             c[2]       = {0};
-    float    area       = 0,
-             subArea    = 0;
+    float    a[2]       = {0};
+    float    b[2]       = {0};
+    float    c[2]       = {0};
+    float    area       = 0;
+    float    subArea    = 0;
     bool     isInside   = false;
     char     fileName[] = "../resources/problem_102.triangles.txt";
     int      count      = 0;
@@ -74,16 +78,18 @@ int main( int argc, char **argv ) {
         fin >> c[0]; fin.get();
         fin >> c[1]; fin.get();
 
-        // area = areaTri( a, b, c );
         area = pe_math.areaTri( a, b, c );
 
-        subArea = pe_math.areaTri( a,      b, origin ) +
+        subArea =
+            pe_math.areaTri( a,      b, origin ) +
             pe_math.areaTri( a,         origin, c ) +
             pe_math.areaTri( origin, b, c );
 
-        if ( area < subArea ) {
+        if ( area < subArea )
+        {
             isInside = false;
-        } else {
+        } else
+        {
             isInside = true;
             count++;
         }
@@ -110,9 +116,11 @@ void showTri( const float *a, const float *b, const float *c, const float *d, co
         << "B[" << setw( 4 ) << b[0] << " " << setw( 4 ) << b[1] << "], "
         << "C[" << setw( 4 ) << c[0] << " " << setw( 4 ) << c[1] << "] ";
 
-    if ( isInside ) {
+    if ( isInside )
+    {
         cout << "contains ";
-    } else {
+    } else
+    {
         cout << "does not contain ";
     }
 
