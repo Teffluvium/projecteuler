@@ -44,7 +44,7 @@ int main()
         }
     } while (count < NTHPRIME);
     
-    cout << "The " << NTHPRIME << " is " << currPrime << endl;
+    cout << "The " << NTHPRIME << " nth prime is " << currPrime << endl;
     
     return 0;
 }

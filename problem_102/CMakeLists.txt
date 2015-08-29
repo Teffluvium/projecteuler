@@ -1,4 +1,4 @@
-set( TARGET_NAME "problem_076" )
+set( TARGET_NAME "problem_102" )
 
 ## Define lists of files
 # List source code files
@@ -6,7 +6,7 @@ set( PROBLEM_SOURCES ${TARGET_NAME}.cpp )
 # List header files
 #set( PROBLEM_HEADERS problem_template.h )
 # List additional resource files
-#set( PROBLEM_RESOURCES problem_template.resource.txt )
+set( PROBLEM_RESOURCES problem_102.triangles.txt )
 
 ## Compile and link
 # Compile the executable

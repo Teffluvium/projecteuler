@@ -40,6 +40,9 @@ public:
 
     // Partition function q
     long partQ( long n, long k );
+
+    float areaTri( const float *a, const float *b, const float *c );
+
 };
 
 

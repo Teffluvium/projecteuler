@@ -40,7 +40,7 @@
 #include <vector>
 using namespace std;
 
-string filename = "problem_011.data.txt";
+string filename = "../resources/problem_011.data.txt";
 
 int main(int argc, char **argv) {
    vector <int> data;
@@ -50,7 +50,7 @@ int main(int argc, char **argv) {
    
    // Read Data from file
    if(!in) { 
-      cout << "Cannot open " << filename << "file.\n";
+      cout << "Cannot open file: " << filename << endl;
       return 1;
    }
    

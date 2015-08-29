@@ -1,4 +1,4 @@
-set( TARGET_NAME "problem_076" )
+set( TARGET_NAME "problem_template" )
 
 ## Define lists of files
 # List source code files
