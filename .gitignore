@@ -3,3 +3,7 @@
 *.swp
 
 build/
+bin/
+includes/
+lib/
+resources/
