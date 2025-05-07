@@ -19,6 +19,12 @@ clean:	## Clean all targets
 		${MAKE} -k -C $$i clean ; \
 	done
 
+.PHONY: deep_clean
+deep_clean: ## Clean all targets
+	@echo Cleaning the install directory
+	@/bin/rm -rfv ./bin
+
+
 .PHONY: install
 install: ## Install all targets
 	@mkdir -p ${INSTALLDIR}
