@@ -17,7 +17,8 @@ clean:
 install: ${TGT}
 	@echo Installing files in ${INSTALLDIR}
 	@mkdir -p ${INSTALLDIR}
-	@cp -u -t ${INSTALLDIR} ${INSTALLLIST}
+	@#cp -u -t ${INSTALLDIR} ${INSTALLLIST}
+	@cp ${INSTALLLIST} ${INSTALLDIR} 
 
 # Automate Generation of Dependencies
 %.d: %.cpp
