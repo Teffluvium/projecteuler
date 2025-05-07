@@ -34,3 +34,9 @@ foreach(folder ${FOLDERS})
         endif(SOURCES)
     endif()
 endforeach(folder)
+
+# Add a clean target to remove all executables and data files
+add_custom_target(clean-all
+    COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_INSTALL_DIR}
+    COMMENT "Cleaning all executables and data files"
+)
