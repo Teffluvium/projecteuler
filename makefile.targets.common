@@ -15,7 +15,7 @@ clean:
 
 .PHONY: install
 install: ${TGT}
-	@echo Installing files in ${INSTALLDIR}
+	@echo Installing files in ${INSTALLDIR}: ${INSTALLLIST}
 	@mkdir -p ${INSTALLDIR}
 	@#cp -u -t ${INSTALLDIR} ${INSTALLLIST}
 	@cp ${INSTALLLIST} ${INSTALLDIR} 
