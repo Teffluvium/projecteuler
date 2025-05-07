@@ -5,8 +5,11 @@ project(ProjectEuler)
 
 set(CMAKE_INSTALL_DIR "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
+# set the CXXFLAGS to -o3 -g -ggdb -Wall
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -g -ggdb -Wall")
+
 # Loop through folders in the src directory and print their names
-file(GLOB_RECURSE FOLDERS LIST_DIRECTORIES true "src/*")
+file(GLOB_RECURSE FOLDERS LIST_DIRECTORIES true "src/problem_*")
 foreach(folder ${FOLDERS})
     if(IS_DIRECTORY ${folder})
         get_filename_component(folder_name ${folder} NAME)
@@ -36,7 +39,7 @@ foreach(folder ${FOLDERS})
 endforeach(folder)
 
 # Add a clean target to remove all executables and data files
-add_custom_target(clean-all
+add_custom_target(clean-install-dir
     COMMAND ${CMAKE_COMMAND} -E remove_directory ${CMAKE_INSTALL_DIR}
     COMMENT "Cleaning all executables and data files"
 )
